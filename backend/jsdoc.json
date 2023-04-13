@@ -1,0 +1,39 @@
+{
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "recurseDepth": 10,
+    "source": {
+        "include": ["src"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules/|public/|test/)"
+    },
+    "sourceType": "module",
+    "opts": {
+        "recurse": true,
+        "destination": "./public/docs/",
+        "template": "node_modules/tui-jsdoc-template"
+    },
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "name": "Backend Docs",
+        "useCollapsibles": true,
+        "logo": {
+            "url": "https://www.taggify.net/images/taggify-logo.svg",
+            "width": "147px",
+            "height": "20px",
+            "link": "https://www.taggify.net"
+        },
+        "footerText": " ",
+        "default": {
+            "staticFiles": {
+                "include": ["public/docs/"]
+            }
+        },
+        "css": [
+            "styles/custom.css"
+        ]
+
+    }
+}

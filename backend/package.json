@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.7",
+    "@grpc/proto-loader": "^0.7.4",
+    "@prisma/client": "^4.0.0",
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "express-jsdoc-swagger": "^1.7.0",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0"
+  },
+  "name": "dsp-backend-v2",
+  "version": "1.0.0",
+  "description": "DSP Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js jsdoc -c jsdoc.json",
+    "test": "jest",
+    "doc": "jsdoc -c jsdoc.json",
+    "doch": "jsdoc --help"
+  },
+  "author": "Alejandro Amaral",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.2",
+    "jsdoc": "^3.6.10",
+    "prisma": "^4.0.0",
+    "tui-jsdoc-template": "^1.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testRegex": "(/test/.*|(\\.|/)(test))\\.(js)x?$"
+  },
+  "prisma": {
+    "schema": "./src/models/schema.prisma"
+  }
+}

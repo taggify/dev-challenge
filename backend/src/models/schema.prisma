@@ -1,0 +1,20 @@
+// Prisma's docs https://www.prisma.io/docs/concepts/components/prisma-schema
+// The connection string is located in this directory in .env file
+
+datasource db {
+    url      = env("DB_URI")
+    provider = "mysql"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id          String @id @default(cuid())
+    username    String
+    password    String
+    email       String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @default(now())
+}

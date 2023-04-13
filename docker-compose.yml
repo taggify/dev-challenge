@@ -1,0 +1,52 @@
+version: '3.8'
+networks:
+  tgf-backend:
+services:
+    tgx-db-postgres:
+      image: 'postgis/postgis:14-3.3-alpine'
+      container_name: tgx-db-postgres
+      restart: always
+      ports:
+        - "1661:5432"
+      volumes:
+        - ${DATA_PATH_HOST}/postgres_db:/var/lib/postgresql/data
+      environment:
+        - POSTGRES_PASSWORD=${STATS_CODE_DB_PASSWORD}
+      networks:
+        tgf-backend:
+
+    tgx-backend:
+      env_file:
+        - ./envs/tgx-backend.env
+      container_name: tgx-backend 
+      environment:
+        - LOCAL_PORT_API=${LOCAL_PORT_BACKEND}
+      ports:
+        - "${LOCAL_PORT_BACKEND}:3000"
+        - "9002:9229"
+      command: "sh /server/entrypoint.sh"
+      volumes:
+        - "${BACKEND_CODE_PATH_HOST}/:/server"
+      build:
+        context: ${BACKEND_CODE_PATH_HOST}
+      networks:
+        tgf-backend:
+    #
+    # tgx-frontend:
+    #   env_file:
+    #     - ./envs/frontend.env
+    #   container_name: tgx-frontend 
+    #   ports:
+    #     - "${LOCAL_PORT_FRONTEND}:3000"
+    #   command: "sh /server/entrypoint.sh"
+    #   volumes:
+    #     - "${FRONTEND_PATH_HOST}/:/server"
+    #   environment:
+    #     - LOCAL_PORT_API=${LOCAL_PORT_FRONTEND}
+    #   build:
+    #     context: ${SCREEN_CODE_PATH_HOST}
+    #   depends_on:
+    #       - dsp-db-postgres
+    #       - kafka
+    #   networks:
+    #     tgf-backend:

@@ -5,9 +5,14 @@ information from weatherapi.com. The backend is built with ExpressJS and the fro
 built with ReactJS. The project consists of three containers: postgres-db, tgx-backend, 
 and tgx-frontend, which can be run with Docker Compose.
 
+> **Note**
+> The goal of this challenge is to know the skill level of the participant, so it's ok if you can't make it fully work.
+
+If you have any doubt, find errors or want to give us feedback about this particular project, please, open an issue so we can review it.
+
 ## Getting Started
 
-To start the project, run the following command:
+To start the project, first fork and clone this repo to your computer. Then run the following command:
 
 ```bash
 docker compose --env-file=./envs/base.env up
@@ -65,3 +70,5 @@ of ExpressJS, ReactJS, and database design to create a functional and visually
 appealing weather widget. The challenge can be modified as needed to meet specific requirements. 
 The challenger's documentation, code style, and testing will be evaluated as part of the 
 challenge.
+
+Once the challenge is completed please send us a mail to jobs@taggify.net with an updated CV and the forked project to revision.

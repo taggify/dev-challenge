@@ -32,7 +32,13 @@ fetch weather information. The backend should fetch the weather information ever
 ## Frontend
 
 The frontend consists of two weather widgets, one horizontal and one vertical. 
-The widgets should display the latest weather information stored in the database. 
+The widgets should display the latest weather information stored in the database. At minimum should display:
+
+- Weather condition (sunny, rainy, cloudy, etc)
+- Temperature in Cº
+- Hour of lecture
+- Name of the city
+
 In addition to the weather widgets, the frontend should also display a history of 
 weather readings. When a user selects a reading from the history, 
 the corresponding weather information should be displayed in the widgets.

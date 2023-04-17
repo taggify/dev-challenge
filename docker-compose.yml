@@ -11,7 +11,7 @@ services:
       volumes:
         - ${DATA_PATH_HOST}/postgres_db:/var/lib/postgresql/data
       environment:
-        - POSTGRES_PASSWORD=${STATS_CODE_DB_PASSWORD}
+        - POSTGRES_PASSWORD=${DB_PASSWORD}
       networks:
         tgf-backend:
 
@@ -21,6 +21,8 @@ services:
       container_name: tgx-backend 
       environment:
         - LOCAL_PORT_API=${LOCAL_PORT_BACKEND}
+        - LOCAL_GRPC_PORT_API=${LOCAL_PORT_GRPC_BACKEND}
+        - LOCAL_DEBUG_PORT=${LOCAL_PORT_DEBUG_BACKEND}
       ports:
         - "${LOCAL_PORT_BACKEND}:3000"
         - "9002:9229"
@@ -31,22 +33,20 @@ services:
         context: ${BACKEND_CODE_PATH_HOST}
       networks:
         tgf-backend:
-    #
-    # tgx-frontend:
-    #   env_file:
-    #     - ./envs/frontend.env
-    #   container_name: tgx-frontend 
-    #   ports:
-    #     - "${LOCAL_PORT_FRONTEND}:3000"
-    #   command: "sh /server/entrypoint.sh"
-    #   volumes:
-    #     - "${FRONTEND_PATH_HOST}/:/server"
-    #   environment:
-    #     - LOCAL_PORT_API=${LOCAL_PORT_FRONTEND}
-    #   build:
-    #     context: ${SCREEN_CODE_PATH_HOST}
-    #   depends_on:
-    #       - dsp-db-postgres
-    #       - kafka
-    #   networks:
-    #     tgf-backend:
+
+    tgx-frontend:
+      container_name: tgx-frontend
+      env_file:
+        - ./envs/tgx-frontend.env
+      build:
+        context: ${FRONTEND_CODE_PATH_HOST}
+        target: development
+      volumes:
+        - "${FRONTEND_CODE_PATH_HOST}/:/app"
+        - "/app/node_modules"
+      ports:
+        - "${LOCAL_PORT_FRONTEND}:3000"
+      depends_on:
+          - tgx-backend
+      networks:
+        tgf-backend:

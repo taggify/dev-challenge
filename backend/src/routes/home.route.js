@@ -16,7 +16,7 @@ module.exports = app => {
 /**
  * GET /
  * @summary Get a resource
- * @description Welcome to the DSP Backend V2
+ * @description Welcome to the Taggify Backend
  * @tags [Home]
  * @return {object} 200 - Returns a greeting message - application/json
  * @example response - 200 - success response
@@ -34,7 +34,7 @@ router.get('/', homeController.get);
 /**
  * POST /
  * @summary Create a resource
- * @description Welcome to the DSP Backend V2
+ * @description Welcome to the Taggify Backend
  * @tags [Home]
  * @return {object} 200 - Returns a greeting message - application/json
  * @example response - 200 - success response
@@ -52,7 +52,7 @@ router.post('/', homeController.get);
 /**
  * PUT /
  * @summary Edit a resource
- * @description Welcome to the DSP Backend V2
+ * @description Welcome to the Taggify Backend
  * @tags [Home]
  * @return {object} 200 - Returns a greeting message - application/json
  * @example response - 200 - success response
@@ -70,7 +70,7 @@ router.put('/', homeController.get);
 /**
  * PATCH /
  * @summary Edit a resource
- * @description Welcome to the DSP Backend V2
+ * @description Welcome to the Taggify Backend
  * @tags [Home]
  * @return {object} 200 - Returns a greeting message - application/json
  * @example response - 200 - success response
@@ -88,7 +88,7 @@ router.patch('/', homeController.get);
 /**
  * DELETE /
  * @summary Delete a resource
- * @description Welcome to the DSP Backend V2
+ * @description Welcome to the Taggify Backend
  * @tags [Home]
  * @return {object} 200 - Returns a greeting message - application/json
  * @example response - 200 - success response

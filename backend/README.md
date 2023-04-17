@@ -1,4 +1,4 @@
-# DSP Backend V2
+# Taggify Test Backend
 
 New Express 4.18 backend with sane defaults. Highlights:
 
@@ -36,7 +36,7 @@ Configuration files for Express and/or other middlewares or database.
 #### src/controllers
 Controller are methods get the request from the routes and convert them to HTTP responses with the use of any middleware as necessary.
 File name convention: `nameOfEndPoint.controller.js`
-Sample: `screens.controller.js`
+Sample: `weather.controller.js`
 
 #### src/middlewares
 Functions can modiffy the requests before sending to our business logic eg: Authentication, logging,
@@ -53,21 +53,7 @@ Sample: `screens.route.js`
 #### src/services
 The services directory will include all the business logic. It can have services that represent business objects and can run queries on the database. Depending on the need, even general services like a database can be placed here.
 File name convention: `nameOfEndPoint.service.js`
-Sample: `screens.service.js`
-
-> **Note**
-> By the nature of the bussines it's possible to have files with to many LOC. We recomend to create this sub tree and split the code between the corresponding files.
-
-```
-services
-└── screens
-    ├── GET
-    |    └── screens.get.service.js
-    ├── POST
-    |    └── screens.post.service.js
-    └── DELETE
-         └── screens.delete.service.js
-```
+Sample: `weather.service.js`
 
 #### src/utils
 This directory will have all the utilities and helpers needed for the application. It will also act as a place to put shared logic.
@@ -85,10 +71,10 @@ Sample: `functions.util.test.js`
 The ports and URL corresponds if the server is running standalone. In a Docker environment
 the URLs and ports will and should change.
 
-- The API REST server runs at [http://localhost:3000/](http://localhost:3000/)
+- The API REST server runs at [http://localhost:9000/](http://localhost:9000/)
 - The API gRPC server runs at [http://localhost:5000/](http://localhost:5000/)
-- Swagger Documentation [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
-- Function Documentation [http://localhost:3000/docs/](http://localhost:3000/docs)
+- Swagger Documentation [http://localhost:9000/api-docs](http://localhost:9000/api-docs)
+- Function Documentation [http://localhost:9000/docs/](http://localhost:9000/docs)
 - The debugger runs at [http://localhost:9229/](http://localhost:9229/)
 
 ### Running test

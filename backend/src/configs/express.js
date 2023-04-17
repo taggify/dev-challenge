@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 
 const swaggerJSDoc = require('express-jsdoc-swagger');
 
 module.exports = (app) => {
     let env = process.env.NODE_ENV || 'development';
     app.disable('x-powered-by');
+    app.use(cors());
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
@@ -23,7 +25,7 @@ module.exports = (app) => {
         const swaggerDefinition = {
             swagger: '2.0',
             info: {
-                title: 'API Backend V2',
+                title: 'Taggify Backend Server',
                 version: '1.0.0',
                 description: 'This is a blank [Express](https://expressjs.com/) API backend server.',
                 contact: {
@@ -32,20 +34,16 @@ module.exports = (app) => {
                     url: 'https://taggify.net'
                 },
             },
-            host: 'localhost:1338',
+            host: `localhost:${process.env.LOCAL_PORT_API}`,
             basePath: '/api',
             schemes: ['http'],
             consumes: ['application/json'],
             produces: ['application/json'],
             servers: [
                 {
-                    url: 'http://localhost:1338',
+                    url: `http://localhost:${process.env.LOCAL_PORT_API}`,
                     description: 'Development server',
                 },
-                {
-                    url: 'https://dsp-gateway.taggify-qa.com/',
-                    description: 'Production server',
-                }
             ],
             tags: [ // Add tags to group endpoints
                 {

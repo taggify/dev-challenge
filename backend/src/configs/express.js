@@ -49,6 +49,10 @@ module.exports = (app) => {
                 {
                     name: 'Home',
                     description: 'Home endpoint',
+                },,
+                {
+                    name: 'Weather',
+                    description: 'Weather endpoint',
                 },
             ],
             apiDocsPath: '/api-docs',

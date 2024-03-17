@@ -1,20 +1,27 @@
 // Prisma's docs https://www.prisma.io/docs/concepts/components/prisma-schema
 // The connection string is located in this directory in .env file
 
-datasource db {
-    url      = env("DB_URI")
-    provider = "mysql"
-}
-
 generator client {
     provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
-model User {
-    id          String @id @default(cuid())
-    username    String
-    password    String
-    email       String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @default(now())
+datasource db {
+    provider = "postgresql"
+    url      = env("DB_URI") 
+}
+
+model Weather {
+  id           Int      @id @default(autoincrement())
+  condition    String   @db.VarChar(200)
+  description  String   @db.VarChar(200)
+  temperature  Float
+  feels_like   Float
+  temp_min     Float
+  temp_max     Float
+  pressure     Int
+  humidity     Int
+  datetime     DateTime
+  city         String   @db.VarChar(30)
+  icon         String   @db.VarChar(30)
 }

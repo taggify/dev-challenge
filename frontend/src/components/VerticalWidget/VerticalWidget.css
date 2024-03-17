@@ -1,0 +1,36 @@
+.vertical-widget {
+  background-color: #3d5a80;
+  color: #e0dede;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+}
+
+.vertical-widget .bg-image {
+  flex-grow: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.vertical-widget .bg-image img {
+  width: 60%;
+  height: 100%;
+}
+
+.bg-image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid black;
+  background-color: #3d5a80;
+}
+
+.vertical-widget .info {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}

@@ -1,13 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const utils = require('../utils/functions');
 const homeController = require('../controllers/home.controller');
-
-
-module.exports = app => {
-    app.use('/', router); // Path to mount the router
-};
 
 // Swagger documentation sample
 // OpenAPI specification https://swagger.io/specification/
@@ -102,3 +96,6 @@ router.patch('/', homeController.get);
  * }
  */
 router.delete('/', homeController.get);
+
+
+module.exports = router;

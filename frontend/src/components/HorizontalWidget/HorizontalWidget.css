@@ -1,0 +1,59 @@
+.horizontal-widget {
+  display: flex;
+  background-color: #3d5a80;
+  padding: 3%;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.horizontal-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.top-row,
+.bottom-row {
+  display: flex;
+  justify-content: space-around;
+  background-color: #3d5a80;
+  color: #e0dede;
+}
+
+.bottom-row {
+  height: 100%;
+  margin-bottom: 2.5%;
+}
+
+.top-row > div,
+.bottom-row > div {
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 2%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 1%;
+  height: 90%;
+}
+
+.horizontal-info p {
+  margin: 0;
+  text-align: center;
+}
+
+
+@media screen and (min-height: 700px) {
+  .horizontal-info p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .horizontal-info p {
+    font-size: 12px;
+  }
+}

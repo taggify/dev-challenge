@@ -46,7 +46,6 @@
 ################################################
 
 config/local.js
-.env
 
 
 ################################################
@@ -134,3 +133,8 @@ lib-cov
 *.pid
 !public/docs/styles/custom.css
 public/*
+
+.http
+
+*.env
+./src/models/*.env
